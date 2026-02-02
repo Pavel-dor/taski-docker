@@ -88,7 +88,7 @@ jobs:
           # Для каждого пересобранного образа 
           # устанавливаем тег latest, чтобы потом
           # на сервере и в docker-compose.yml не указывать версию
-          tags: 0pavel0/taski_backend:latest 
+          tags: ${{ secrets.DOCKER_USERNAME }}/taski_backend:latest 
 
 
 
@@ -134,7 +134,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: username/taski_frontend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/taski_frontend:latest
 
 
 
@@ -157,4 +157,4 @@ jobs:
           context: ./gateway/
           push: true
           # Тут вместо username должен быть ваш логин на Docker Hub
-          tags: username/taski_gateway:latest 
+          tags: ${{ secrets.DOCKER_USERNAME }}/taski_gateway:latest 
